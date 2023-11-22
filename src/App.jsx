@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
 import "./App.css";
+import IconDice from "./assets/icon-dice.svg";
 
 function App() {
   //https://api.adviceslip.com/advice
@@ -47,8 +48,11 @@ function App() {
       <div className="container">
         <div className="header">advice # {adviceId}</div>
         <div className="body">{`"${advice}"`}</div>
+        <hr className="test" />
         <div className="button">
-          <button onClick={refresh}>Test</button>
+          <button className="dice" onClick={refresh}>
+            <img src={IconDice} />
+          </button>
         </div>
       </div>
     </>

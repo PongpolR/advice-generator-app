@@ -4,6 +4,12 @@
   font-family: "Manrope", sans-serif;
 }
 
+@media (min-width: 1440px) {
+  .test {
+    /* background-image: src("./assets/pattern-divider-desktop.svg"); */
+  }
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -13,12 +19,17 @@
 
 body {
   background-color: hsl(218, 23%, 16%);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .container {
   background: hsl(217, 19%, 24%);
   padding: 2rem;
-  margin: 0 300px;
+  padding-bottom: 4rem;
+  /* margin: 0 300px; */
   border-radius: 10px;
 }
 
@@ -32,8 +43,34 @@ body {
 .body {
   color: hsl(193, 38%, 86%);
   font-size: 28px;
+  margin-bottom: 1.5rem;
 }
 
+.button {
+  position: absolute;
+  margin-top: 4rem;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* cursor: pointer; */
+  /* margin-top: 1.5rem; */
+}
+
+.dice {
+  width: 50px;
+  height: 50px;
+  background-color: hsl(150, 100%, 66%);
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.dice:active {
+  background-color: #2ee59d;
+  box-shadow: 0 0 30px #2ee59d;
+  /* color: #fff; */
+  /* transform: translateY(-7px); */
+}
+/* 
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -68,4 +105,4 @@ body {
 
 .read-the-docs {
   color: #888;
-}
+} */
