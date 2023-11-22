@@ -1,35 +1,58 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
+  //https://api.adviceslip.com/advice
+  const [data, setData] = useState([]);
+  const [advice, setAdvice] = useState("");
+  const [adviceId, setAdviceId] = useState("");
+
+  useEffect(() => {
+    // let abortController = new AbortController();
+    const loadapi = async () => {
+      await fetch("https://api.adviceslip.com/advice")
+        .then((res) => res.json())
+        .then((data) => setData(data));
+
+      setAdvice(data?.slip?.advice);
+      setAdviceId(data?.slip?.id);
+    };
+
+    loadapi();
+    // return () => abortController.abort();
+  }, [advice]);
+
+  // console.log(data?.slip?.advice);
+
+  const refresh = () => {
+    console.log("click");
+    // let abortController = new AbortController();
+    const loadapi = () => {
+      fetch("https://api.adviceslip.com/advice")
+        .then((res) => res.json())
+        .then((data) => setData(data));
+
+      setAdvice(data?.slip?.advice);
+      setAdviceId(data?.slip?.id);
+    };
+
+    loadapi();
+    console.log(data);
+    // return () => abortController.abort();
+  };
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className="container">
+        <div className="header">advice # {adviceId}</div>
+        <div className="body">{`"${advice}"`}</div>
+        <div className="button">
+          <button onClick={refresh}>Test</button>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
