@@ -48,7 +48,7 @@ function App() {
       <div className="container">
         <div className="header">advice # {adviceId}</div>
         <div className="body">{`"${advice}"`}</div>
-        <hr className="test" />
+        <hr className="divider" />
         <div className="button">
           <button className="dice" onClick={refresh}>
             <img src={IconDice} />
