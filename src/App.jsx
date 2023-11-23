@@ -4,43 +4,36 @@ import "./App.css";
 import IconDice from "./assets/icon-dice.svg";
 
 function App() {
-  //https://api.adviceslip.com/advice
   const [data, setData] = useState([]);
   const [advice, setAdvice] = useState("");
   const [adviceId, setAdviceId] = useState("");
 
+  const loadapi = async () => {
+    try {
+      const res = await fetch("https://api.adviceslip.com/advice");
+      if (res.status != 200) {
+        // log out
+      } else {
+        const data = await res.json();
+        setData(data);
+        setAdvice(data?.slip?.advice);
+        setAdviceId(data?.slip?.id);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     // let abortController = new AbortController();
-    const loadapi = async () => {
-      await fetch("https://api.adviceslip.com/advice")
-        .then((res) => res.json())
-        .then((data) => setData(data));
-
-      setAdvice(data?.slip?.advice);
-      setAdviceId(data?.slip?.id);
-    };
-
     loadapi();
     // return () => abortController.abort();
   }, [advice]);
 
   // console.log(data?.slip?.advice);
 
-  const refresh = () => {
-    console.log("click");
-    // let abortController = new AbortController();
-    const loadapi = () => {
-      fetch("https://api.adviceslip.com/advice")
-        .then((res) => res.json())
-        .then((data) => setData(data));
-
-      setAdvice(data?.slip?.advice);
-      setAdviceId(data?.slip?.id);
-    };
-
-    loadapi();
-    console.log(data);
-    // return () => abortController.abort();
+  const refresh = async () => {
+    await loadapi();
   };
 
   return (
