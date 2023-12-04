@@ -4,112 +4,138 @@
   font-family: "Manrope", sans-serif;
 }
 
+/* desktop */
 @media (min-width: 1440px) {
-}
-
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-body {
-  background-color: hsl(218, 23%, 16%);
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.container {
-  background: hsl(217, 19%, 24%);
-  padding: 2rem;
-  padding-bottom: 4rem;
-  margin: 0 2rem;
-  border-radius: 10px;
-}
-
-.header {
-  letter-spacing: 3px;
-  margin-bottom: 1rem;
-  text-transform: uppercase;
-  color: hsl(150, 100%, 66%);
-}
-
-.body {
-  color: hsl(193, 38%, 86%);
-  font-size: 28px;
-  margin-bottom: 1.5rem;
-}
-
-.button {
-  position: absolute;
-  margin-top: 4rem;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  /* cursor: pointer; */
-  /* margin-top: 1.5rem; */
-}
-
-.dice {
-  width: 50px;
-  height: 50px;
-  background-color: hsl(150, 100%, 66%);
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-}
-
-.dice:active {
-  background-color: #2ee59d;
-  box-shadow: 0 0 30px #2ee59d;
-  /* color: #fff; */
-  /* transform: translateY(-7px); */
-}
-
-.divider {
-  margin-top: 3rem;
-  border: 0;
-  height: 16px;
-  background-image: url("./assets/pattern-divider-desktop.svg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
-}
-/* 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  body {
+    background-color: hsl(218, 23%, 16%);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media (min-width: 376px) {
+  body {
+    background-color: hsl(218, 23%, 16%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  .container {
+    background: hsl(217, 19%, 24%);
+    padding: 2rem;
+    padding-bottom: 4rem;
+    margin: 0 2rem;
+    border-radius: 10px;
+  }
+
+  .header {
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    color: hsl(150, 100%, 66%);
+  }
+
+  .body {
+    color: hsl(193, 38%, 86%);
+    font-size: 28px;
+    margin-bottom: 1.5rem;
+  }
+
+  .button {
+    position: absolute;
+    margin-top: 4rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .dice {
+    width: 50px;
+    height: 50px;
+    background-color: hsl(150, 100%, 66%);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dice:active {
+    background-color: #2ee59d;
+    box-shadow: 0 0 30px #2ee59d;
+  }
+
+  .divider {
+    margin-top: 3rem;
+    border: 0;
+    height: 16px;
+    background-image: url("./assets/pattern-divider-desktop.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
   }
 }
 
-.card {
-  padding: 2em;
-}
+/* mobile */
+@media (max-width: 375px) {
+  body {
+    background-color: hsl(218, 23%, 16%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 100vh;
+  }
 
-.read-the-docs {
-  color: #888;
-} */
+  .container {
+    background: hsl(217, 19%, 24%);
+    padding: 2rem;
+    padding-bottom: 4rem;
+    margin: 0 1rem;
+    border-radius: 10px;
+  }
+
+  .header {
+    letter-spacing: 3px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    color: hsl(150, 100%, 66%);
+  }
+
+  .body {
+    color: hsl(193, 38%, 86%);
+    font-size: 22px;
+    margin-bottom: 1.5rem;
+  }
+
+  .button {
+    position: absolute;
+    margin-top: 4rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .dice {
+    width: 50px;
+    height: 50px;
+    background-color: hsl(150, 100%, 66%);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dice:active {
+    background-color: #2ee59d;
+    box-shadow: 0 0 30px #2ee59d;
+  }
+
+  .divider {
+    margin-top: 3rem;
+    border: 0;
+    height: 16px;
+    background-image: url("./assets/pattern-divider-mobile.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+}
